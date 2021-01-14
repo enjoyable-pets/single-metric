@@ -3,8 +3,13 @@
         "phpunit/phpunit": "^9.5"
     },
     "autoload": {
-        "PSR-4": {
+        "psr-4": {
             "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
         }
     }
 }
