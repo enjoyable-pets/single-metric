@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Tests\FilesMapper;
+namespace App\Tests\Mapper;
 
-use App\FilesMapper\PhpFilesMapper;
+use App\Mapper\PhpFilesMapper;
 use PHPUnit\Framework\TestCase;
 
 class PhpFilesMapperTest extends TestCase
