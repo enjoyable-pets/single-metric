@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Tests\data;
+namespace Outside\Project;
 
 class first
 {
-
+    public function simpleMethod(): bool
+    {
+        return true;
+    }
 }
 
 class Second

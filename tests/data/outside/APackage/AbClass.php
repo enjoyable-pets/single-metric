@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Tests\data\APackage;
+namespace Outside\Project\APackage;
 
 class AbClass
 {

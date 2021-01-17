@@ -19,6 +19,11 @@ class PhpFilesMapper
         return $this->filesMap;
     }
 
+    public function getFilesPaths(): array
+    {
+        return array_keys($this->filesMap);
+    }
+
     private function createMap()
     {
         foreach ($this->createFilesIterator() as $fileInfo) {
@@ -33,10 +38,22 @@ class PhpFilesMapper
         return new \RecursiveIteratorIterator($directory);
     }
 
-    private function addToMapPhpFile(\SplFileInfo $fileObject): void
+    private function addToMapPhpFile(\SplFileInfo $splFileInfo): void
     {
-        if ('php' === $fileObject->getExtension()) {
-            $this->filesMap[$fileObject->getPathname()] = $fileObject;
+        if ($this->isInVendor($splFileInfo)) {
+            return;
         }
+
+        if ('php' === $splFileInfo->getExtension()) {
+            $this->filesMap[$splFileInfo->getPathname()] = $splFileInfo;
+        }
+    }
+
+    private function isInVendor(\SplFileInfo $splFileInfo): bool
+    {
+        $filePath = $splFileInfo->getRealPath();
+        preg_match("/\/vendor\//", $filePath, $output);
+
+        return count($output) > 0;
     }
 }

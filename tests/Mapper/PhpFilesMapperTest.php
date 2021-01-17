@@ -19,7 +19,7 @@ class PhpFilesMapperTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->dataDir = realpath(__DIR__ . '/../data');
+        $this->dataDir = realpath(__DIR__ . '/../data/outside');
     }
 
     private function expectedFilesList(): array
@@ -29,6 +29,7 @@ class PhpFilesMapperTest extends TestCase
         $Aa = new \SplFileInfo($this->dataDir.'/APackage/AaClass.php');
         $Ab = new \SplFileInfo($this->dataDir.'/APackage/AbClass.php');
         $listOfClasses = new \SplFileInfo($this->dataDir.'/list_of_classes.php');
+        $simpleLogger = new \SplFileInfo($this->dataDir.'/Logger/SimpleLogger.php');
 
         return [
             $A->getPathname() => $A,
@@ -36,6 +37,7 @@ class PhpFilesMapperTest extends TestCase
             $Ab->getPathname() => $Ab,
             $Aa->getPathname() => $Aa,
             $listOfClasses->getPathname() => $listOfClasses,
+            $simpleLogger->getPathname() => $simpleLogger,
         ];
     }
 }
