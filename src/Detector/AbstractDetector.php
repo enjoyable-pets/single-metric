@@ -68,7 +68,9 @@ abstract class AbstractDetector
     protected function trimBeginEnd($patternOutput, int $rmBegin, int $rmEnd): string
     {
         $temp = substr($patternOutput, $rmBegin);
-        $temp = substr($temp, 0, -$rmEnd);
+        if ($rmEnd > 0) {
+            $temp = substr($temp, 0, -$rmEnd);
+        }
 
         return trim($temp);
     }

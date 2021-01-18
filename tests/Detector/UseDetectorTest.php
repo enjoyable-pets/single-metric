@@ -31,6 +31,10 @@ class UseDetectorTest  extends DetectorTestCase
                 'namespace' => 'Psr\Log',
                 'name' => 'LoggerInterface'
             ],
+            [
+                'namespace' => 'Outside\Project\APackage',
+                'name' => 'AaClass'
+            ],
         ];
     }
 }

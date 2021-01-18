@@ -6,6 +6,7 @@ namespace Outside\Project\Logger;
 use Outside\Project\BClass;
 use Outside\Project\AClass;
 use Psr\Log\LoggerInterface;
+use Outside\Project AS OutsideProject;
 
 class SimpleLogger
 {
@@ -24,5 +25,10 @@ class SimpleLogger
     public function logData(string $message)
     {
         $this->logger->info($message);
+    }
+
+    public function createAa()
+    {
+        return new OutsideProject\APackage\AaClass();
     }
 }
