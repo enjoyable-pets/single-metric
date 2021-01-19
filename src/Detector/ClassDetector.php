@@ -16,19 +16,16 @@ class ClassDetector extends AbstractDetector
 
     private function matchClassCurlyLeft(): void
     {
-        preg_match_all("/class\s+[\w]+[\s]*\{/", $this->fileContent, $output);
-        $this->trimPatternOutput($output, 5, 1);
+        $this->addPregOutputToList("/class\s+(\w+)\s*\{/");
     }
 
     private function matchClassImplements(): void
     {
-        preg_match_all("/class\s+[\w]+[\s]+implements/", $this->fileContent, $output);
-        $this->trimPatternOutput($output, 5, 10);
+        $this->addPregOutputToList("/class\s+(\w+)\s+implements/");
     }
 
     private function matchClassExtends(): void
     {
-        preg_match_all("/class\s+[\w]+[\s]+extends/", $this->fileContent, $output);
-        $this->trimPatternOutput($output, 5, 8);
+        $this->addPregOutputToList("/class\s+(\w+)\s+extends/");
     }
 }

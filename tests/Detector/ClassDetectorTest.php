@@ -24,7 +24,7 @@ class ClassDetectorTest extends DetectorTestCase
     public function detectClassesProvider(): array
     {
         return [
-            'AClass file' => ['/AClass.php', $this->expectedAClassList()],
+//            'AClass file' => ['/AClass.php', $this->expectedAClassList()],
             'list_of_classes file' => ['/list_of_classes.php', $this->expectedClassesList()],
         ];
     }

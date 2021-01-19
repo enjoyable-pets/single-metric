@@ -51,6 +51,22 @@ abstract class AbstractDetector
         }
     }
 
+    protected function addPregOutputToList(string $pattern)
+    {
+        preg_match_all($pattern, $this->fileContent, $output);
+        if (!array_key_exists(1, $output)) {
+            return;
+        }
+        foreach ($output[1] as $value) {
+            $item = [
+                'namespace' => $this->getNamespace(),
+                'name' => $value
+            ];
+
+            $this->addToList($item);
+        }
+    }
+
     protected function trimPatternOutput(array $output, int $rmBegin, int $rmEnd)
     {
         foreach ($output as $pattern) {
